@@ -15,9 +15,8 @@ jobs:
       name: scripts
     runs-on: ubuntu-latest
     steps:
-      - name: Get API Key
+      - name: Exec Script
         shell: bash
         env:
           SECRET: ${{ secrets.super_secret }}
-        run: |
-          echo "$GITHUB_CONTEXT"
+        run: echo "$GITHUB_CONTEXT"
