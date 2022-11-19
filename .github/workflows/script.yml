@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  script:
     environment:
       name: scripts
     runs-on: ubuntu-latest
@@ -20,4 +20,4 @@ jobs:
         env:
           SECRET: ${{ secrets.super_secret }}
         run: |
-          echo $SECRET
+          echo "$GITHUB_CONTEXT"
