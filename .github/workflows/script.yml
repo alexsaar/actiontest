@@ -1,0 +1,23 @@
+name: Script Test
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: "script"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get API Key
+        shell: bash
+        env:
+          SECRET: ${{ secrets.super_secret }}
+        run: |
+          echo $SECRET
